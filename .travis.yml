@@ -1,0 +1,10 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t herveblondeau/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true herveblondeau/docker-react npm run test -- --coverage
