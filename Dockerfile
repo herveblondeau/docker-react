@@ -12,5 +12,6 @@ CMD ["npm", "run", "build"]
 # Create the actual image, which uses elements created in the temporary image above
 # - every FROM instruction implicitly stops the previous block
 FROM nginx
+EXPOSE 80
 COPY --from=0 /app/build /usr/share/nginx/html
 # - no need to start nginx because it is already done by the nginx base image
